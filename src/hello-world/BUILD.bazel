@@ -22,6 +22,7 @@ ng_module(
     ],
     deps = [
         "//src/lib",
+        "//src/genrule-module",
         "@angular//packages/core",
         "@angular//packages/forms",
         "@angular//packages/router",

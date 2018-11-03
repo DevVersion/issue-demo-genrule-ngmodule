@@ -1,0 +1,19 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@angular//:index.bzl", "ng_module")
+
+genrule(
+    name = "genrule_module_file",
+    srcs = [":my-module.tpl"],
+    outs = ["genrule-module.ts"],
+    cmd = "cp $(SRCS) $@",
+)
+
+ng_module(
+    name = "genrule-module",
+    srcs = [":index.ts", ":genrule_module_file"],
+    deps = [
+        "@angular//packages/core",
+        "@npm//@types",
+    ]
+)
